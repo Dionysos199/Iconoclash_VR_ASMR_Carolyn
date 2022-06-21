@@ -49,7 +49,7 @@ public class moveCheckPoints : MonoBehaviour
         Vector3 deltaPosition = transform.position - nextCheckpoint.transform.position;
         if (deltaPosition.magnitude < 0.1)
         {
-            if(index < checkpoints.Count) index++;
+            if(index < checkpoints.Count-1) index++;
             nextCheckpoint = checkpoints[index];
         }
     }
