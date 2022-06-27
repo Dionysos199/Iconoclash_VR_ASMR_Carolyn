@@ -1073,6 +1073,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "video",
+            "id": "29eb4bb7-cc78-4517-8405-7bfb1fed1a1f",
+            "actions": [
+                {
+                    "name": "Toggle",
+                    "type": "Button",
+                    "id": "b9653ca6-1e99-4901-9822-a6667a477cb2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "color",
+                    "type": "Button",
+                    "id": "2425fcf3-4614-4c0d-ab37-0c610bdf1642",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0cf8fb2c-23d7-4f87-8b47-12c90073fc3e",
+                    "path": "<ViveController>/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7db51fdd-3219-4845-b627-db8aa163fc6e",
+                    "path": "<ViveController>/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "color",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

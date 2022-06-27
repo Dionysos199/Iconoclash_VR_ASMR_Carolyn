@@ -10,19 +10,23 @@ public class BeadsScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        createBeadsSheet();
+
+    }
+    void createBeadsSheet()
+    {
         int m = 0;
         for (int i = 0; i < width; i++)
         {
-            for ( int j = 0; j < height; j++)
+            for (int j = 0; j < height; j++)
             {
                 m++;
                 int index = m % beads.Count;
-                Instantiate(beads[index], transform.position+ new Vector3(i, 0, j), Quaternion.Euler(90,0,0));
+                Instantiate(beads[index], transform.position + new Vector3(i, 0, j), Quaternion.Euler(90, 0, 0));
                 Debug.Log(beads[index]);
             }
         }
     }
-
     // Update is called once per frame
     void Update()
     {
