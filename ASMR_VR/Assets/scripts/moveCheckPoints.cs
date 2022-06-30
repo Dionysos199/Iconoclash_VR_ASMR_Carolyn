@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class moveCheckPoints : MonoBehaviour
 {
@@ -11,9 +13,16 @@ public class moveCheckPoints : MonoBehaviour
     Vector3 direction;
     public float speed = 1.0f;
 
+    public UnityEvent<float> reachCheckPoint;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        if (reachCheckPoint == null)
+            reachCheckPoint = new UnityEvent<float>();
+
+
         _transform = GetComponent<Transform>();
         _transform.position = checkpoints[0].transform.position;
         nextCheckpoint = checkpoints[1];
@@ -51,6 +60,9 @@ public class moveCheckPoints : MonoBehaviour
         {
             if(index < checkpoints.Count-1) index++;
             nextCheckpoint = checkpoints[index];
+            reachCheckPoint.Invoke(index);
+
+            Debug.Log(index);
         }
     }
 }

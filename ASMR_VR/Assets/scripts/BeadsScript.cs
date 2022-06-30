@@ -10,20 +10,23 @@ public class BeadsScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        createBeadsSheet();
 
     }
-    void createBeadsSheet()
+    public void createBeadsSheet(float checkPoint)
     {
-        int m = 0;
-        for (int i = 0; i < width; i++)
+        Debug.Log("Checkpoint"+ checkPoint+" was reached");
+        if (checkPoint == 4)
         {
-            for (int j = 0; j < height; j++)
+            int m = 0;
+            for (int i = 0; i < width; i++)
             {
-                m++;
-                int index = m % beads.Count;
-                Instantiate(beads[index], transform.position + new Vector3(i, 0, j), Quaternion.Euler(90, 0, 0));
-                Debug.Log(beads[index]);
+                for (int j = 0; j < height; j++)
+                {
+                    m++;
+                    int index = m % beads.Count;
+                    Instantiate(beads[index], transform.position + new Vector3(i, 0, j), Quaternion.Euler(90, 0, 0));
+                    Debug.Log(beads[index]);
+                }
             }
         }
     }

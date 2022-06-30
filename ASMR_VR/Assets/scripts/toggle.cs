@@ -15,6 +15,6 @@ public class toggle : MonoBehaviour
             UnityEngine.XR.InputDevice device = Head[0];
             //Head[0].TryGetFeatureUsages()
         }
-    
+
     }
 }
