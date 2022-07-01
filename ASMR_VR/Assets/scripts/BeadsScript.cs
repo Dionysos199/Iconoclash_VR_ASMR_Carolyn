@@ -7,16 +7,29 @@ public class BeadsScript : MonoBehaviour
     public int width;
     public int height;
     public List<GameObject> beads;
+    public float frequency;
+    public int numberOfWaves;
+
+    int n = 0;
     // Start is called before the first frame update
     void Start()
     {
 
     }
+    public IEnumerator beadsCreateCoroutine (float checkpoint)
+    {
+       while (true)
+        {
+            n++;
+            if(n<4)createBeadsSheet(checkpoint);
+            //Debug.Log("new creation");
+            yield return new WaitForSeconds(frequency);
+        }
+    }
     public void createBeadsSheet(float checkPoint)
     {
         Debug.Log("Checkpoint"+ checkPoint+" was reached");
-        if (checkPoint == 4)
-        {
+       
             int m = 0;
             for (int i = 0; i < width; i++)
             {
@@ -28,6 +41,13 @@ public class BeadsScript : MonoBehaviour
                     Debug.Log(beads[index]);
                 }
             }
+        
+    }
+    public void startCoroutine(float checkPoint)
+    {
+        if (checkPoint == 2)
+        {
+            StartCoroutine(beadsCreateCoroutine(checkPoint));
         }
     }
     // Update is called once per frame
