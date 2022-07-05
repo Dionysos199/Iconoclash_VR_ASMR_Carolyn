@@ -45,7 +45,7 @@ public class BeadsScript : MonoBehaviour
     }
     public void startCoroutine(float checkPoint)
     {
-        if (checkPoint == 2)
+        if (checkPoint == 4)
         {
             StartCoroutine(beadsCreateCoroutine(checkPoint));
         }

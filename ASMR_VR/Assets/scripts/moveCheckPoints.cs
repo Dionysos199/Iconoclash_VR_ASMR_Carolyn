@@ -23,10 +23,9 @@ public class moveCheckPoints : MonoBehaviour
             reachCheckPoint = new UnityEvent<float>();
 
 
-        _transform = GetComponent<Transform>();
-        _transform.position = checkpoints[0].transform.position;
+       transform.position = checkpoints[0].transform.position;
         nextCheckpoint = checkpoints[1];
-        _transform.rotation = Quaternion.FromToRotation(Vector3.forward, direction);
+        transform.rotation = Quaternion.FromToRotation(Vector3.forward, direction);
 
     }
     private void OnTriggerEnter(Collider other)
@@ -56,13 +55,19 @@ public class moveCheckPoints : MonoBehaviour
         var step = speed * Time.deltaTime; // calculate distance to move
         transform.position = Vector3.MoveTowards(transform.position, nextCheckpoint.transform.position, step);
         Vector3 deltaPosition = transform.position - nextCheckpoint.transform.position;
+     
         if (deltaPosition.magnitude < 0.1)
         {
-            if(index < checkpoints.Count-1) index++;
-            nextCheckpoint = checkpoints[index];
-            reachCheckPoint.Invoke(index);
 
             Debug.Log(index);
+
+            reachCheckPoint.Invoke(index);
+            //check if the index is always less than the total number of the checkpoints
+            if (index < checkpoints.Count-1) index++;
+
+            //the next checkpoint/cube to move to is indicated by its index
+            nextCheckpoint = checkpoints[index];
+
         }
     }
 }
